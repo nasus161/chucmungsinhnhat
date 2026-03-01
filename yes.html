@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Chúc mừng sinh nhật</title>
+    <title>Chúc mừng sinh nhật🥳</title>
 
     <style>
         body {
@@ -52,9 +52,9 @@
     <!-- Ảnh mèo -->
     <img src="cat.png" alt="cat">
 
-    <!-- Nhạc -->
-    <audio id="music" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <!-- Audio -->
+    <audio id="music" autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -69,29 +69,28 @@
                 setTimeout(typeEffect, 80);
             }
         }
-
         typeEffect();
 
-        // ===== Snow =====
+        // ===== Snow effect =====
         function createSnowflake() {
             const snow = document.createElement("div");
             snow.classList.add("snowflake");
-            snow.innerHTML = "❄️🎉";
+            snow.innerHTML = "❄️";
 
             snow.style.left = Math.random() * window.innerWidth + "px";
             snow.style.animationDuration = (Math.random() * 3 + 2) + "s";
             snow.style.fontSize = (Math.random() * 10 + 10) + "px";
 
             document.body.appendChild(snow);
-
             setTimeout(() => snow.remove(), 5000);
         }
 
         setInterval(createSnowflake, 200);
 
-        // ===== Nhạc (click mới chạy) =====
-        document.body.addEventListener("click", function () {
-            document.getElementById("music").play();
+        // ===== Fix auto play (trình duyệt chặn) =====
+        document.addEventListener("click", function () {
+            const music = document.getElementById("music");
+            music.play();
         });
     </script>
 
